@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import Lala from '@/components/Lala'
+import Posts from '@/components/Posts'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/lala',
-      name: 'lala',
-      component: Lala
+      path: '/posts',
+      name: 'posts',
+      component: Posts
     }
   ]
 })

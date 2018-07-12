@@ -1,15 +1,19 @@
 <template>
   <div>
-    <h3 v-for="post in posts" :key="post.id">{{post.title}}</h3>
+    <blog-post v-for="post in posts" :key="post.id" :post="post"></blog-post>
   </div>
 </template>
 
 <script>
+import BlogPost from '@/components/BlogPost'
 const axios = require('axios');
 export default {
+  components: {
+    BlogPost
+  },
   data () {
     return {
-      posts: ["sfdsdf"],
+      posts: [],
     }
   },
   created() {
