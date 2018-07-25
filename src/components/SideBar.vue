@@ -1,18 +1,27 @@
 <template>
   <div>
-    <blog-post v-for="post in posts" :key="post.id" :post="post"></blog-post>
+    <div class="sidebar-module">
+      <h4>链接</h4>
+      <ol class="list-unstyled">
+      <!-- {% for link in links %}
+      <li><a href="{{link.url}}" title="{{link.description}}">{{link.name}}</a></li>
+      {% endfor %} -->
+      </ol>
+    </div><!-- /.blog-sidebar -->
+    <div class="sidebar-module">
+      <h4>标签</h4>
+      <div class="tagcloud">
+      <!-- {% for tag in tags %} -->
+      <!-- <a href="{% url 'blog.tag' tag.name %}">{{tag}}</a> -->
+      <!-- {% endfor %} -->
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import BlogPost from '@/components/BlogPost'
-import SideBar from '@/components/SideBar'
 const axios = require('axios');
 export default {
-  components: {
-    'blog-post': BlogPost,
-    'sidebar': SideBar
-  },
   data () {
     return {
       posts: [],
