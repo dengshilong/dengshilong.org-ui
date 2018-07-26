@@ -3,7 +3,7 @@
     <div class="sidebar-module">
       <h4>链接</h4>
       <ol class="list-unstyled">
-        <li v-for="link in links" :key="link.id"><a :href="link.url" :title="link.description">{{link.name}}</a></li>
+        <li v-for="link in links" :key="link.id"><a :href="link.url" :title="link.description" target="_blank">{{link.name}}</a></li>
       </ol>
     </div>
     <div class="sidebar-module">

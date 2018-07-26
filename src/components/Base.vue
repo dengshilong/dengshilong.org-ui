@@ -4,7 +4,8 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-            <a class="blog-nav-item" href="/sitemap/">本站目录</a>
+            <!-- <a class="blog-nav-item" href="/sitemap/">本站目录</a> -->
+            <a class="blog-nav-item" v-for="page in pages" :key="page.id" :href="'/' + page.slug">{{page.title}}</a>
         </nav>
       </div>
     </div>
@@ -37,11 +38,26 @@ export default {
   },
   data () {
     return {
+      pages: []
     }
   },
   created() {
+    this.fetchPage()
   },
   methods: {
+    fetchPage() {
+      axios.get('http://127.0.0.1:7001/api/pages/')
+        .then(response => {
+          this.pages = response.data
+        })
+        .catch(error => {
+          if (err.response.status == 404) {
+
+          }
+          // handle error
+          console.log(error);
+        })
+    },
   }
 }
 </script>
