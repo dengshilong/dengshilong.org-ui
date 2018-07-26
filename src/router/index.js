@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Posts from '@/components/Posts'
 import NotFoundComponent from '@/components/404'
 import Base from '@/components/Base'
+import PostDetail from '@/components/PostDetail'
 
 Vue.use(Router)
 
@@ -14,13 +15,11 @@ export default new Router({
       path: '/',
       component: Base,
       children: [
-        {path: '/', name: 'index', component: Posts}
+        {path: '/', name: 'index', component: Posts},
+        {path: '/:year/:month/:day/:slug/', name: 'detail', component: PostDetail},
+        {path: '/category/:category/', name: 'category', component: Posts},
+        {path: '/tag/:tag/', name: 'tag', component: Posts}
       ]
-    },
-    {
-      path: '/posts',
-      name: 'posts',
-      component: Posts
     },
     { path: '*', component: NotFoundComponent }
   ]
