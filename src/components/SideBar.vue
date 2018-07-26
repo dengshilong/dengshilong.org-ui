@@ -21,7 +21,7 @@
     <div class="sidebar-module">
       <h4>文章归档</h4>
       <ol class="list-unstyled">
-        <!-- <li v-for="month in months" :key="month"><a href="/{{month|date:"Y/n/"}}">{{month|date:"Y年m月"}}</a></li> -->
+        <li v-for="month in months" :key="month"><a :href="get_month_url(month)">{{get_month_desc(month)}}</a></li>
       </ol>
     </div>
     <div class="sidebar-module">
@@ -35,6 +35,7 @@
 
 <script>
 const axios = require('axios');
+
 export default {
   data () {
     return {
@@ -48,6 +49,7 @@ export default {
       this.fetchLink()
       this.fetchCategory()
       this.fetchTag()
+      this.fetchMonth()
   },
   methods: {
     fetchLink() {
@@ -99,6 +101,18 @@ export default {
           // handle error
           console.log(error);
         })
+    },
+    get_month_url(archive) {
+      let d = archive.split("T")[0]
+      let [year, month] = d.split("-")
+      month = parseInt(month)
+      return "/" + year + "/" + month + "/"
+    },
+    get_month_desc(archive) {
+      let d = archive.split("T")[0]
+      let [year, month] = d.split("-")
+      month = parseInt(month)
+      return year + "年" + month + "月"
     }
   }
 }

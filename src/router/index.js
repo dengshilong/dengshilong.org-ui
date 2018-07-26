@@ -16,9 +16,10 @@ export default new Router({
       component: Base,
       children: [
         {path: '/', name: 'index', component: Posts},
-        {path: '/:year/:month/:day/:slug/', name: 'detail', component: PostDetail},
         {path: '/category/:category/', name: 'category', component: Posts},
-        {path: '/tag/:tag/', name: 'tag', component: Posts}
+        {path: '/tag/:tag/', name: 'tag', component: Posts},
+        {path: '/:year/:month/:day/:slug/', name: 'detail', component: PostDetail},
+        {path: '/:year/:month/', name: 'archive', component: Posts},
       ]
     },
     { path: '*', component: NotFoundComponent }
